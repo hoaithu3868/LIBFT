@@ -6,7 +6,7 @@
 /*   By: thninh <thninh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 13:47:59 by thninh            #+#    #+#             */
-/*   Updated: 2016/11/12 11:04:23 by thninh           ###   ########.fr       */
+/*   Updated: 2016/11/13 17:49:49 by thninh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,19 @@ char				*ft_strtrim(char const *s)
 
 	i = 0;
 	j = 0;
-	len = trim_len((char *)s);
-	result = (char *)malloc(sizeof(*result) * len + 1);
-	if (s == NULL)
+	len = 0;
+	result = NULL;
+	if (s)
+	{
+		len = trim_len((char *)s);
+		result = (char *)malloc(sizeof(*result) * len + 1);
+	}
+	if (!(s && result))
 		return (NULL);
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
 	while (j < len)
-	{
-		result[j] = s[i];
-		j++;
-		i++;
-	}
+		result[j++] = s[i++];
 	result[j] = '\0';
 	return (result);
 }

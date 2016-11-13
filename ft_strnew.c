@@ -6,25 +6,27 @@
 /*   By: thninh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 11:22:15 by thninh            #+#    #+#             */
-/*   Updated: 2016/11/12 13:53:23 by thninh           ###   ########.fr       */
+/*   Updated: 2016/11/13 14:51:29 by thninh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strnew(size_t size)
+char			*ft_strnew(size_t size)
 {
-	char *str;
+	char		*str;
+	size_t		i;
 
+	i = 0;
 	str = (char *)malloc(sizeof(*str) * size + 1);
 	if (str)
 	{
-		while (size)
+		while (i < size)
 		{
-			*str = '\0';
-			size--;
+			str[i] = '\0';
+			i++;
 		}
-		*str = '\0';
+		str[i] = '\0';
 		return (str);
 	}
 	return (NULL);

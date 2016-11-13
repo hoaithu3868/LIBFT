@@ -6,52 +6,57 @@
 /*   By: thninh <thninh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 10:45:50 by thninh            #+#    #+#             */
-/*   Updated: 2016/11/12 14:12:22 by thninh           ###   ########.fr       */
+/*   Updated: 2016/11/13 17:23:25 by thninh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		lengths(int n, size_t *len, int *weight)
+static int		lengths(int n)
 {
-	*len = 1;
-	if (n >= 0)
+	int			len;
+	long int	l;
+
+	len = 0;
+	l = n;
+	if (l < 0)
 	{
-		*len = 0;
-		n = -n;
+		len++;
+		l = -n;
 	}
-	*weight = 1;
-	while (n / *weight < -9)
+	while (l != l % 10)
 	{
-		*weight *= 10;
-		*len += 1;
+		len++;
+		l = (l - l % 10) / 10;
 	}
+	len++;
+	return (len);
 }
 
 char			*ft_itoa(int n)
 {
-	size_t		len;
-	int			weight;
-	size_t		cur;
+	int			len;
+	int			cur;
 	char		*str;
+	long int	ln;
 
-	lengths(n, &len, &weight);
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
+	ln = n;
+	len = lengths(n);
+	str = (char *)malloc(sizeof(*str) * len + 1);
+	if (!str)
 		return (NULL);
 	cur = 0;
 	if (n < 0)
 	{
 		str[cur] = '-';
+		ln *= -1;
+	}
+	while (cur < ((n < 0) ? len - 1 : len))
+	{
+		str[len - cur - 1] = (ln % 10) + 48;
+		ln = (ln - ln % 10) / 10;
 		cur++;
 	}
-	if (n > 0)
-		n = -n;
-	while (weight >= 1)
-	{
-		str[cur++] = -(n / weight % 10) + 48;
-		weight /= 10;
-	}
-	str[cur] = '\0';
+	str[len] = '\0';
 	return (str);
 }

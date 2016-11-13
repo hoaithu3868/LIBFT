@@ -6,7 +6,7 @@
 #    By: thninh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/11 16:50:13 by thninh            #+#    #+#              #
-#    Updated: 2016/11/12 14:37:24 by thninh           ###   ########.fr        #
+#    Updated: 2016/11/12 14:59:34 by thninh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,19 +27,19 @@ SRC = ./ft_atoi.c ./ft_bzero.c ./ft_isalnum.c ./ft_isalpha.c ./ft_isascii.c \
 	  ./ft_strtrim.c ./ft_strstr.c ./ft_strmap.c ./ft_strncpy.c \
 	  ./ft_strjoin.c ./ft_strlen.c ./ft_striter.c ./ft_strdup.c ./ft_strdel.c
 
-OBJ = *.o
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Werror -Wextra -c $(SRC) -I $(HEADER)
-	ar rc $(NAME) $(OBJ)
+	@gcc -Wall -Werror -Wextra -c $(SRC) -I $(HEADER)
+	@ar rc $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(OBJ)
+	@/bin/rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	@/bin/rm -rf $(NAME)
 
 re: fclean all
 

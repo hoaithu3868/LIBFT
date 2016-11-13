@@ -6,7 +6,7 @@
 /*   By: thninh <thninh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 09:29:23 by thninh            #+#    #+#             */
-/*   Updated: 2016/11/11 11:30:05 by thninh           ###   ########.fr       */
+/*   Updated: 2016/11/13 14:44:35 by thninh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			ft_atoi(const char *str)
 	i = 0;
 	neg = 0;
 	n = 0;
-	while (str[i] == '\n' || str[i] == '\0' || str[i] == '\r' ||
+	while (str[i] == '\n' || str[i] == ' ' || str[i] == '\r' ||
 			str[i] == '\v' || str[i] == '\f' || str[i] == '\t')
 		i++;
 	if (str[i] == '-')
