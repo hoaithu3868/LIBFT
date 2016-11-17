@@ -10,4 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+void   ft_lstadd(t_list **alst, t_list *anew)
+{
+  t_list  *list;
+
+  list = *alst;
+  if (list && anew)
+  {
+    anew->next = list;
+    list = anew;
+  }
+}
