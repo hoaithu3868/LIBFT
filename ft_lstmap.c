@@ -6,15 +6,15 @@
 /*   By: thninh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 16:17:36 by thninh            #+#    #+#             */
-/*   Updated: 2016/11/12 16:17:38 by thninh           ###   ########.fr       */
+/*   Updated: 2016/11/17 09:57:50 by thninh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-static size_t   ft_lst_len(t_list *lst)
+
+static size_t	ft_lst_len(t_list *lst)
 {
-	size_t	len;
+	size_t		len;
 
 	len = 0;
 	while (lst)
@@ -25,24 +25,26 @@ static size_t   ft_lst_len(t_list *lst)
 	return (len);
 }
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*tmp_new_map;
-	t_list	*new_map;
+	t_list		*tmp_map;
+	t_list		*map;
 
-	new_map = NULL;
-	tmp_new_map = NULL;
-	if ((new_map = (t_list *)malloc(ft_lst_len(lst) * sizeof(t_list))))
+	map = NULL;
+	tmp_map = NULL;
+	if (lst)
+		map = (t_list *)malloc(sizeof(t_list) * ft_lst_len(lst));
+	if (lst && map && f)
 	{
-		new_map = f(ft_lstnew(lst->content, lst->content_size));
-		tmp_new_map = new_map;
+		map = f(ft_lstnew(lst->content, lst->content_size));
+		tmp_map = map;
 		lst = lst->next;
 		while (lst)
 		{
-			tmp_new_map->next = f(ft_lstnew(lst->content, lst->content_size));
-			tmp_new_map = tmp_new_map->next;
+			tmp_map->next = f(ft_lstnew(lst->content, lst->content_size));
+			tmp_map = tmp_map->next;
 			lst = lst->next;
 		}
 	}
-	return (new_map);
+	return (map);
 }

@@ -6,15 +6,15 @@
 /*   By: thninh <thninh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 15:16:28 by thninh            #+#    #+#             */
-/*   Updated: 2016/11/11 14:50:59 by thninh           ###   ########.fr       */
+/*   Updated: 2016/11/17 10:42:03 by thninh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void				ft_bzero(void *s, size_t n)
 {
-	unsigned char *cur;
+	unsigned char	*cur;
 
 	cur = (unsigned char *)s;
 	while (n > 0)

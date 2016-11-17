@@ -6,7 +6,7 @@
 #    By: thninh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/11 16:50:13 by thninh            #+#    #+#              #
-#    Updated: 2016/11/12 14:59:34 by thninh           ###   ########.fr        #
+#    Updated: 2016/11/17 14:39:25 by thninh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,11 @@ SRC = ./ft_atoi.c ./ft_bzero.c ./ft_isalnum.c ./ft_isalpha.c ./ft_isascii.c \
 	  ./ft_strchr.c ./ft_strclr.c ./ft_strcmp.c ./ft_striteri.c \
 	  ./ft_strequ.c ./ft_strmapi.c ./ft_strnequ.c ./ft_strnew.c \
 	  ./ft_strnstr.c ./ft_strncmp.c ./ft_strncat.c ./ft_strsplit.c \
-	  ./ft_strrchr.c ./ft_strsub.c ./ft_strcpy.c ./ft_toupper.c ./ft_tolower.c \
-	  ./ft_strtrim.c ./ft_strstr.c ./ft_strmap.c ./ft_strncpy.c \
-	  ./ft_strjoin.c ./ft_strlen.c ./ft_striter.c ./ft_strdup.c ./ft_strdel.c
+	  ./ft_strrchr.c ./ft_strsub.c ./ft_strcpy.c ./ft_toupper.c \
+	  ./ft_tolower.c ./ft_strtrim.c ./ft_strstr.c ./ft_strmap.c \
+	  ./ft_strncpy.c ./ft_strjoin.c ./ft_strlen.c ./ft_striter.c \
+	  ./ft_strdup.c ./ft_strdel.c ./ft_lstadd.c ./ft_lstdel.c \
+	  ./ft_lstdelone.c ./ft_lstiter.c ./ft_lstmap.c ./ft_lstnew.c
 
 OBJ = $(SRC:.c=.o)
 
